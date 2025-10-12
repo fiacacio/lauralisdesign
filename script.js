@@ -93,6 +93,48 @@ if (contactForm) {
     });
 }
 
+// Carrossel de imagens do hero
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+let slideInterval;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function startCarousel() {
+    if (slides.length > 1) {
+        slideInterval = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
+    }
+}
+
+function stopCarousel() {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+}
+
+// Iniciar carrossel quando a página carregar
+document.addEventListener('DOMContentLoaded', () => {
+    startCarousel();
+});
+
+// Pausar carrossel quando o usuário está interagindo
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopCarousel();
+    } else {
+        startCarousel();
+    }
+});
+
 // Efeito parallax suave nos círculos do hero
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
