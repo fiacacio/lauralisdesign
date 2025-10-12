@@ -3,15 +3,17 @@ const fs = require('fs');
 const path = require('path');
 
 async function convertImages() {
-    console.log('🔍 Procurando pasta portifolio...');
+    console.log('🔍 Procurando pastas de imagens...');
     
-    // Procurar pela pasta portifolio
+    // Procurar pelas pastas de imagens
     const possiblePaths = [
         './portifolio',
         '../portifolio',
         '../../portifolio',
         './imagens',
-        '../imagens'
+        '../imagens',
+        './backgrouds',
+        '../backgrouds'
     ];
     
     let portifolioPath = null;
@@ -24,7 +26,7 @@ async function convertImages() {
     }
     
     if (!portifolioPath) {
-        console.log('❌ Pasta portifolio não encontrada!');
+        console.log('❌ Nenhuma pasta de imagens encontrada!');
         console.log('📁 Diretório atual:', process.cwd());
         console.log('📂 Conteúdo atual:');
         fs.readdirSync('.').forEach(file => {
