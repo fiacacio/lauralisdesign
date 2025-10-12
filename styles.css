@@ -89,6 +89,26 @@ body {
     width: 100%;
 }
 
+.nav-social {
+    display: flex;
+    align-items: center;
+}
+
+.nav-social a {
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-social a:hover {
+    color: var(--primary-color);
+    background: rgba(18, 60, 52, 0.1);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -421,6 +441,17 @@ body {
     font-size: 1.1rem;
 }
 
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--secondary-color);
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -506,6 +537,10 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-social {
+        display: none;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
