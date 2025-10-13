@@ -77,7 +77,9 @@
         <div class="portfolio-fade"></div>
         <div class="container">
             <h2 class="section-title">Portfólio</h2>
-            <div class="portfolio-grid">
+            <div class="portfolio-carousel">
+                <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+                <div class="carousel-track">
                 <div class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).jpg" alt="Consultório Odontológico">
@@ -100,11 +102,16 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image">
-                        <div class="portfolio-placeholder">Novo Projeto</div>
+                        <img src="portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).jpg" alt="BR LIC - Escritório Industrial">
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
                     </div>
-                    <h3>Em Breve</h3>
-                    <p>Novos projetos em desenvolvimento</p>
+                    <h3>BR LIC</h3>
+                    <p>Escritório industrial integrado e contemporâneo</p>
                 </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
             </div>
             <div class="portfolio-cta">
                 <a href="portfolio.html" class="btn-primary">Ver Todos os Projetos</a>
@@ -146,7 +153,7 @@
                     <p>Especialista em projetos residenciais e comerciais, sempre buscando soluções inovadoras que transformam ambientes em experiências memoráveis e funcionais.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <h3>150+</h3>
+                            <h3 id="projectsCount">0</h3>
                             <p>Projetos Realizados</p>
                         </div>
                         <div class="stat">
@@ -161,6 +168,17 @@
                 </div>
                 <div class="about-image">
                     <div class="about-circle"></div>
+                    <div class="polaroid-stack">
+                        <div class="polaroid active">
+                            <img src="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.jpg" alt="Laura Lis">
+                        </div>
+                        <div class="polaroid">
+                            <img src="backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente.jpg" alt="Laura Lis em projeto">
+                        </div>
+                        <div class="polaroid">
+                            <img src="backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg" alt="Laura Lis trabalho">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,19 +191,31 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>📧 Email</h3>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.511l-8 5.334-8-5.334V6Zm0 12H4V8.489l7.4 4.933a1 1 0 0 0 1.2 0L20 8.489V18Z"/></svg>
+                            <span>Email</span>
+                        </h3>
                         <p>lauralisarq@gmail.com</p>
                     </div>
                     <div class="contact-item">
-                        <h3>📱 WhatsApp</h3>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a10.3 10.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+                            <span>WhatsApp</span>
+                        </h3>
                         <p>(19) 98955-9119</p>
                     </div>
                     <div class="contact-item">
-                        <h3>📸 Instagram</h3>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 .001 6.001A3 3 0 0 0 12 9Zm4.5-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+                            <span>Instagram</span>
+                        </h3>
                         <p><a href="https://www.instagram.com/lauralis.interiores/" target="_blank" rel="noopener noreferrer">@lauralis.interiores</a></p>
                     </div>
                     <div class="contact-item">
-                        <h3>📍 Endereço</h3>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+                            <span>Endereço</span>
+                        </h3>
                         <p>Mococa - São Paulo, SP</p>
                     </div>
                 </div>

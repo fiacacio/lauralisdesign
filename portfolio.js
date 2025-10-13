@@ -31,6 +31,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (9).jpg',
                 'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de.jpg'
             ]
+        },
+        br_lic: {
+            title: 'BR LIC - Escritório Industrial',
+            description: 'Aquele antes e depois que a gente adora né? Nesse projeto a empresa Ômega Net cedeu um pouco do seu espaço a BRLIC Tecnologia, duas empresas que já caminhavam juntas, e continuarão só que de cara nova. Gostaram?',
+            images: [
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg',
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (1).jpg',
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (2).jpg',
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).jpg',
+                'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas, .jpg',
+                'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas,  (2).jpg',
+                'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas,  (3).jpg'
+            ]
         }
     };
 

@@ -72,6 +72,17 @@ window.addEventListener('scroll', () => {
         portfolioFade.style.opacity = String(visible);
         portfolioFade.style.transform = `translateY(${(1 - visible) * 20}px)`;
     }
+
+    // Parallax suave da bolinha rosa do Sobre
+    const aboutCircle = document.querySelector('.about-circle');
+    if (aboutCircle) {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            const rectAbout = aboutSection.getBoundingClientRect();
+            const offset = (window.innerHeight - rectAbout.top) * 0.06; // fator sutil
+            aboutCircle.style.transform = `translateY(${offset}px)`;
+        }
+    }
 });
 
 // Animação de entrada para elementos
@@ -169,6 +180,86 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Contador dinâmico de projetos (na home)
+    const projectsCountEl = document.getElementById('projectsCount');
+    if (projectsCountEl) {
+        // Conta itens reais no portfólio da home, ignorando placeholders
+        const items = document.querySelectorAll('#portfolio .portfolio-item');
+        let count = 0;
+        items.forEach(el => {
+            if (!el.classList.contains('coming-soon')) count++;
+        });
+        // Animação simples de contagem
+        const duration = 800;
+        const start = performance.now();
+        const target = count;
+        const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const val = Math.floor(target * progress);
+            projectsCountEl.textContent = String(val);
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+
+        // Clique no número leva ao portfólio
+        projectsCountEl.style.cursor = 'pointer';
+        projectsCountEl.addEventListener('click', () => {
+            window.location.href = 'portfolio.html';
+        });
+    }
+
+    // Rotaciona as polaroids automaticamente
+    const polaroids = document.querySelectorAll('.polaroid-stack .polaroid');
+    if (polaroids.length > 0) {
+        let idx = 0;
+        setInterval(() => {
+            polaroids.forEach((p, i) => p.classList.toggle('active', i === idx));
+            idx = (idx + 1) % polaroids.length;
+        }, 4000);
+    }
+
+    // Carrossel de projetos na home (destaque com esmaecimento)
+    const track = document.querySelector('.carousel-track');
+    const items = track ? Array.from(track.querySelectorAll('.portfolio-item')) : [];
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let carouselIndex = 0; // índice do primeiro destacado
+
+    function updateCarousel() {
+        items.forEach((el, idx) => {
+            el.classList.remove('highlight');
+            el.classList.remove('dim');
+            // central destacado: index+1
+            if (idx === (carouselIndex + 1) % items.length) {
+                el.classList.add('highlight');
+            } else {
+                el.classList.add('dim');
+            }
+        });
+        // deslocamento: centraliza o item (index+1)
+        const itemWidth = items[0]?.getBoundingClientRect().width || 0;
+        const gap = 32; // aproximado do CSS
+        const offset = (itemWidth + gap) * carouselIndex;
+        track.style.transform = `translateX(${-offset}px)`;
+    }
+
+    if (track && items.length > 0) {
+        updateCarousel();
+        nextBtn?.addEventListener('click', () => {
+            carouselIndex = (carouselIndex + 1) % items.length;
+            updateCarousel();
+        });
+        prevBtn?.addEventListener('click', () => {
+            carouselIndex = (carouselIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+        // Auto-advance (mais lento)
+        setInterval(() => {
+            carouselIndex = (carouselIndex + 1) % items.length;
+            updateCarousel();
+        }, 11000);
+    }
 });
 
 // Pausar carrossel quando o usuário está interagindo
@@ -184,10 +275,10 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroCircles = document.querySelectorAll('.hero-circle');
-    
     heroCircles.forEach((circle, index) => {
-        const speed = 0.5 + (index * 0.1);
-        circle.style.transform = `translateY(${scrolled * speed}px)`;
+        const speedY = 0.12 + index * 0.03; // mais suave
+        const speedX = 0.02 + index * 0.01;
+        circle.style.transform = `translate(${scrolled * speedX}px, ${scrolled * speedY}px)`;
     });
 });
 
