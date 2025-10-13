@@ -496,7 +496,7 @@ body {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 1rem;
     align-items: center;
     position: relative;
     z-index: 1;
@@ -547,11 +547,22 @@ body {
 
 /* Carrossel Polaroid - Fotos na Mesa */
 .polaroid-carousel {
-    position: relative;
-    width: 320px;
-    height: 380px;
-    margin: 0 auto;
-    margin-top: -40px;
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-2deg);
+    z-index: 4;
+}
+
+.polaroid-carousel-2 {
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(3deg);
     z-index: 4;
 }
 

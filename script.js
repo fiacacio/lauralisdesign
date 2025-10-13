@@ -210,36 +210,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Carrossel polaroid da seção About
-    const polaroidCards = document.querySelectorAll('.polaroid-card');
+    const polaroidCards = document.querySelectorAll('.polaroid-carousel .polaroid-card');
+    const polaroidCards2 = document.querySelectorAll('.polaroid-carousel-2 .polaroid-card');
     let currentPolaroidIndex = 0;
+    let currentPolaroidIndex2 = 0;
     
-    function rotatePolaroids() {
-        if (polaroidCards.length === 0) return;
+    function rotatePolaroids(cards, currentIndex, isSecondCarousel = false) {
+        if (cards.length === 0) return;
         
         // Remove classes atuais
-        polaroidCards.forEach(card => {
+        cards.forEach(card => {
             card.classList.remove('active', 'prev', 'next');
         });
         
         // Adiciona classes baseadas na posição
-        polaroidCards.forEach((card, index) => {
-            if (index === currentPolaroidIndex) {
+        cards.forEach((card, index) => {
+            if (index === currentIndex) {
                 card.classList.add('active');
-            } else if (index === (currentPolaroidIndex + 1) % polaroidCards.length) {
+            } else if (index === (currentIndex + 1) % cards.length) {
                 card.classList.add('next');
-            } else if (index === (currentPolaroidIndex - 1 + polaroidCards.length) % polaroidCards.length) {
+            } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
                 card.classList.add('prev');
             }
         });
         
-        // Avança para o próximo
-        currentPolaroidIndex = (currentPolaroidIndex + 1) % polaroidCards.length;
+        return (currentIndex + 1) % cards.length;
     }
     
-    // Inicia rotação automática a cada 6 segundos
+    // Inicia rotação automática para ambos os carrosséis
     if (polaroidCards.length > 0) {
-        rotatePolaroids(); // Posição inicial
-        setInterval(rotatePolaroids, 6000);
+        currentPolaroidIndex = rotatePolaroids(polaroidCards, currentPolaroidIndex); // Posição inicial
+        setInterval(() => {
+            currentPolaroidIndex = rotatePolaroids(polaroidCards, currentPolaroidIndex);
+        }, 6000);
+    }
+    
+    if (polaroidCards2.length > 0) {
+        currentPolaroidIndex2 = rotatePolaroids(polaroidCards2, currentPolaroidIndex2); // Posição inicial
+        setInterval(() => {
+            currentPolaroidIndex2 = rotatePolaroids(polaroidCards2, currentPolaroidIndex2);
+        }, 5000); // Intervalo diferente para criar variação
     }
 
     // Carrossel de projetos na home (destaque com esmaecimento)
