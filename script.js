@@ -37,6 +37,19 @@ window.addEventListener('scroll', () => {
         header.style.background = 'rgba(255, 255, 255, 0.95)';
         header.style.boxShadow = 'none';
     }
+
+    // Aumentar a opacidade do gradiente do hero conforme o scroll
+    const overlay = document.querySelector('.carousel-overlay');
+    if (overlay) {
+        const maxOpacity = 0.85; // opacidade máxima desejada
+        const startAt = 0;       // inicia efeito no topo
+        const endAt = 400;       // distância de scroll para atingir o máximo
+        const scrolled = Math.min(Math.max(window.scrollY - startAt, 0), endAt);
+        const progress = scrolled / endAt;
+        const base = 0.35;       // opacidade inicial definida no CSS
+        const current = base + (maxOpacity - base) * progress;
+        overlay.style.opacity = String(current);
+    }
 });
 
 // Animação de entrada para elementos

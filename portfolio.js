@@ -10,26 +10,26 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Consultório Odontológico',
             description: 'Esse consultório odontológico ganhou vida com uma combinação única de verdes claros, escuros e amadeirado, criando um ambiente cheio de personalidade e conforto. A iluminação branca quente completou o clima aconchegante que todos merecem!',
             images: [
-                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).webp',
-                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (2).webp',
-                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (3).webp',
-                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (4).webp'
+                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).jpg',
+                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (2).jpg',
+                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (3).jpg',
+                'portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (4).jpg'
             ]
         },
-        residencia_hossri: {
+        residencia_rossri: {
             title: 'Suíte Master',
             description: 'Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de seus moradores. Cada detalhe foi pensado, cada item desenhado para atender as necessidades, o funcional não foi deixado de lado, ele caminha lado a lado com a estética. As cores claras trazem paz e serenidade com um toque de cor através do rosé que de forma delicada trouxe vida e alegria.',
             images: [
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (2).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (3).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (4).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (5).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (6).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (7).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (8).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (9).webp',
-                'portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de.webp'
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (2).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (3).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (4).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (5).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (6).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (7).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (8).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (9).jpg',
+                'portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de.jpg'
             ]
         }
     };

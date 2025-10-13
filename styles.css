@@ -33,11 +33,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--primary-color);
+    color: var(--white);
     z-index: 1000;
     padding: 1rem 0;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .nav {
@@ -64,14 +64,14 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--white);
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
 }
 
 .nav-menu a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .nav-menu a::after {
@@ -81,7 +81,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     transition: width 0.3s ease;
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .nav-social a {
-    color: var(--text-dark);
+    color: var(--white);
     transition: color 0.3s ease;
     padding: 8px;
     border-radius: 50%;
@@ -105,8 +105,8 @@ body {
 }
 
 .nav-social a:hover {
-    color: var(--primary-color);
-    background: rgba(18, 60, 52, 0.1);
+    color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-toggle {
@@ -118,7 +118,7 @@ body {
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--primary-color);
+    background: var(--white);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -175,14 +175,15 @@ body {
     height: 100%;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.8) 25%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0.2) 75%,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.4) 25%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.1) 75%,
         rgba(255, 255, 255, 0.05) 100%
     );
     z-index: 2;
     pointer-events: none;
+    opacity: 0.35; /* mais sutil no início; aumenta com o scroll via JS */
 }
 
 .hero-content {
@@ -591,11 +592,12 @@ body {
     background: var(--primary-color);
     color: var(--white);
     text-align: center;
-    padding: 2rem 0;
+    padding: 0.8rem 0; /* mais fino */
 }
 
 .footer p {
     opacity: 0.8;
+    font-size: 0.9rem; /* levemente menor */
 }
 
 /* Portfolio Page Styles */
@@ -686,16 +688,10 @@ body {
     opacity: 1;
 }
 
-.portfolio-overlay h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
+/* Removemos textos do overlay; títulos/descrições ficam fora, abaixo da imagem */
+.portfolio-overlay h3,
 .portfolio-overlay p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
+    display: none;
 }
 
 .btn-view {
@@ -847,7 +843,7 @@ body {
 
 /* Navigation Active State */
 .nav-menu a.active {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: 600;
 }
 
@@ -862,6 +858,11 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Garante que o slide ocupe bem o viewport em mobile */
+    .hero { min-height: 80vh; }
+    .hero-carousel { height: 100%; }
+    .carousel-slide { height: 100%; }
+    .carousel-slide img { object-fit: cover; object-position: center; }
     .nav-social {
         display: none;
     }
