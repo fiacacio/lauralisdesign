@@ -1073,10 +1073,15 @@ body {
         font-size: 2rem;
     }
 
-    .services-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
+    .services-grid { grid-template-columns: 1fr; }
+    /* Carrossel vertical no mobile */
+    .portfolio-carousel { overflow: hidden; }
+    .carousel-track { display: flex; flex-direction: column; gap: 1.25rem; grid-template-columns: none; }
+    .carousel-btn { display: none !important; }
+    .carousel-track .portfolio-item { opacity: 0.5; width: 100%; }
+    .carousel-track .portfolio-item .portfolio-image { height: 220px; }
+    .carousel-track .portfolio-item.dim .portfolio-image::after { background: rgba(255,255,255,0.35); }
+    .carousel-track .portfolio-item.highlight { opacity: 1; transform: none; }
 
     .portfolio-title {
         font-size: 2.5rem;

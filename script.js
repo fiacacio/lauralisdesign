@@ -237,11 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('dim');
             }
         });
-        // deslocamento: centraliza o item (index+1)
+        // deslocamento: centraliza o item (index+1) | no mobile vira vertical (sem translateX)
         const itemWidth = items[0]?.getBoundingClientRect().width || 0;
-        const gap = 32; // aproximado do CSS
-        const offset = (itemWidth + gap) * carouselIndex;
-        track.style.transform = `translateX(${-offset}px)`;
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            track.style.transform = 'translateX(0)';
+        } else {
+            const gap = 32; // aproximado do CSS
+            const offset = (itemWidth + gap) * carouselIndex;
+            track.style.transform = `translateX(${-offset}px)`;
+        }
     }
 
     if (track && items.length > 0) {
