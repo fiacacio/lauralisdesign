@@ -48,6 +48,30 @@ window.addEventListener('scroll', () => {
         const current = base + (maxOpacity - base) * progress;
         overlay.style.opacity = String(current);
     }
+
+    // Parallax suave no fade do herói e leve movimento do background
+    const fade = document.querySelector('.hero-fade');
+    const carousel = document.querySelector('.hero-carousel');
+    const portfolioFade = document.querySelector('.portfolio-fade');
+    if (fade) {
+        const y = Math.min(window.scrollY, 250);
+        fade.style.transform = `translateY(${y * 0.2}px)`;
+        fade.style.opacity = String(1 - Math.min(y / 250, 0.6));
+    }
+    if (carousel) {
+        const y2 = Math.min(window.scrollY, 300);
+        carousel.style.transform = `translateY(${y2 * 0.1}px)`; // parallax de fundo
+    }
+
+    // Fade invertido ao entrar no portfólio
+    if (portfolioFade) {
+        const portfolioSection = document.getElementById('portfolio');
+        const rect = portfolioSection.getBoundingClientRect();
+        // Quando o topo da seção aproxima-se do topo da viewport
+        const visible = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / 200));
+        portfolioFade.style.opacity = String(visible);
+        portfolioFade.style.transform = `translateY(${(1 - visible) * 20}px)`;
+    }
 });
 
 // Animação de entrada para elementos
