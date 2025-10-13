@@ -34,16 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Abrir modal
+    // Abrir modal (click e toque para mobile)
     portfolioItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const projectId = this.getAttribute('data-project');
+        const openFromItem = () => {
+            const projectId = item.getAttribute('data-project');
             const project = projects[projectId];
-            
-            if (project) {
-                openModal(project);
-            }
-        });
+            if (project) openModal(project);
+        };
+
+        item.addEventListener('click', openFromItem);
+        item.addEventListener('touchend', function(e) {
+            // evita duplo disparo em alguns navegadores
+            e.preventDefault();
+            openFromItem();
+        }, { passive: false });
     });
 
     // Fechar modal

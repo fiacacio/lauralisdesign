@@ -31,10 +31,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
     } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
         header.style.boxShadow = 'none';
     }
 
@@ -124,7 +122,7 @@ function nextSlide() {
 
 function startCarousel() {
     if (slides.length > 1) {
-        slideInterval = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
+        slideInterval = setInterval(nextSlide, 9000); // Muda a cada 9 segundos
     }
 }
 
@@ -137,6 +135,16 @@ function stopCarousel() {
 // Iniciar carrossel quando a página carregar
 document.addEventListener('DOMContentLoaded', () => {
     startCarousel();
+
+    // Na home (index), tornar os cards do portfólio clicáveis para navegar
+    // Só aplica se não houver modal (ou seja, não estamos na página de portfólio)
+    if (!document.getElementById('projectModal')) {
+        document.querySelectorAll('#portfolio .portfolio-item').forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = 'portfolio.html';
+            });
+        });
+    }
 });
 
 // Pausar carrossel quando o usuário está interagindo
