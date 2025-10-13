@@ -47,7 +47,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 0 20px 0 32px; /* move levemente o logo para a direita */
+    padding: 0 20px 0 32px; /* como antes */
 }
 
 .nav-brand h1 {
@@ -1058,6 +1058,10 @@ body {
     .about-text .section-title {
         text-align: center;
     }
+    /* Ajuste de polaroids para não ultrapassar em telas pequenas */
+    .polaroid-stack { right: 12px; }
+    .polaroid { width: 220px; }
+    .polaroid img { height: 240px; }
 
     .about-stats {
         grid-template-columns: 1fr;
