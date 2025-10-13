@@ -723,6 +723,32 @@ body {
     color: var(--secondary-color);
 }
 
+.maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(18, 60, 52, 0.05);
+}
+
+.maps-link:hover {
+    color: var(--secondary-color);
+    background: rgba(18, 60, 52, 0.1);
+    transform: translateY(-1px);
+}
+
+.maps-link svg {
+    width: 16px;
+    height: 16px;
+}
+
 .icon { color: var(--primary-color); opacity: 0.9; }
 
 .contact-form {
