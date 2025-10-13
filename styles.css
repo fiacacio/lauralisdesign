@@ -221,7 +221,7 @@ body {
     z-index: 3;
     padding: 40px 20px 24px;
     position: relative;
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.15));
     backdrop-filter: blur(6px);
     border-radius: 20px;
     margin: 20px;
@@ -293,15 +293,15 @@ body {
 .hero-circle {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .hero-circle-1 {
     width: 200px;
     height: 200px;
     background: var(--primary-color);
-    bottom: 40px;
-    right: 30px;
+    bottom: 80px;
+    right: 60px;
     animation: float 6s ease-in-out infinite;
 }
 
@@ -309,8 +309,8 @@ body {
     width: 150px;
     height: 150px;
     background: var(--primary-color);
-    bottom: 140px;
-    right: 160px;
+    bottom: 200px;
+    right: 120px;
     animation: float 6s ease-in-out infinite reverse;
 }
 
@@ -318,8 +318,8 @@ body {
     width: 120px;
     height: 120px;
     background: var(--secondary-color);
-    bottom: 220px;
-    right: 300px;
+    bottom: 120px;
+    right: 280px;
     transform: none;
     animation: float 4s ease-in-out infinite;
 }
@@ -489,18 +489,20 @@ body {
 }
 
 /* About Section */
-.about {
-    padding: 80px 0;
-    background: var(--white);
-}
-
+.about { position: relative; padding: 40px 0; background: var(--white); }
+.about::before, .about::after { content: ""; position: absolute; left: 0; right: 0; height: 40px; pointer-events: none; z-index: 0; }
+.about::before { top: 0; background: linear-gradient(to bottom, rgba(18,60,52,0.06), rgba(18,60,52,0)); }
+.about::after { bottom: 0; background: linear-gradient(to top, rgba(18,60,52,0.06), rgba(18,60,52,0)); }
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
+.about-text, .about-image, .about-stats { position: relative; z-index: 1; }
 .about-text .section-title {
     text-align: left;
     margin-bottom: 2rem;
@@ -543,16 +545,90 @@ body {
     justify-content: center;
 }
 
-.about-circle {
+/* Carrossel Polaroid - Fotos na Mesa */
+.polaroid-carousel {
+    position: relative;
     width: 320px;
-    height: 320px;
-    background: var(--secondary-color);
-    border-radius: 50%;
-    opacity: 0.5;
+    height: 380px;
+    margin: 0 auto;
+    margin-top: -40px;
+    z-index: 4;
+}
+
+.polaroid-card {
     position: absolute;
-    right: 10px; /* mais à direita */
-    display: none;
-    will-change: transform;
+    background: white;
+    padding: 15px 15px 60px 15px;
+    border-radius: 3px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: scale(0.7) translateY(40px) rotate(0deg);
+    filter: blur(3px);
+}
+
+.polaroid-card.active {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+    filter: blur(0);
+    z-index: 6;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.polaroid-card.prev {
+    opacity: 0.6;
+    transform: scale(0.75) translateY(25px) translateX(-30px) rotate(-12deg);
+    filter: blur(2px);
+    z-index: 3;
+}
+
+.polaroid-card.next {
+    opacity: 0.6;
+    transform: scale(0.75) translateY(25px) translateX(30px) rotate(12deg);
+    filter: blur(2px);
+    z-index: 3;
+}
+
+.polaroid-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* Bolas decorativas da seção About */
+.about-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+}
+
+.about-circle-1 {
+    width: 120px;
+    height: 120px;
+    background: var(--primary-color);
+    top: 20px;
+    right: 40px;
+    animation-delay: 0s;
+}
+
+.about-circle-2 {
+    width: 80px;
+    height: 80px;
+    background: var(--secondary-color);
+    top: 120px;
+    right: 120px;
+    animation-delay: 2s;
+}
+
+.about-circle-3 {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-color);
+    top: 200px;
+    right: 20px;
+    animation-delay: 4s;
 }
 
 /* Polaroids */

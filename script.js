@@ -209,8 +209,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Rotaciona as polaroids automaticamente
-    // Polaroids removidas - sem animação
+    // Carrossel polaroid da seção About
+    const polaroidCards = document.querySelectorAll('.polaroid-card');
+    let currentPolaroidIndex = 0;
+    
+    function rotatePolaroids() {
+        if (polaroidCards.length === 0) return;
+        
+        // Remove classes atuais
+        polaroidCards.forEach(card => {
+            card.classList.remove('active', 'prev', 'next');
+        });
+        
+        // Adiciona classes baseadas na posição
+        polaroidCards.forEach((card, index) => {
+            if (index === currentPolaroidIndex) {
+                card.classList.add('active');
+            } else if (index === (currentPolaroidIndex + 1) % polaroidCards.length) {
+                card.classList.add('next');
+            } else if (index === (currentPolaroidIndex - 1 + polaroidCards.length) % polaroidCards.length) {
+                card.classList.add('prev');
+            }
+        });
+        
+        // Avança para o próximo
+        currentPolaroidIndex = (currentPolaroidIndex + 1) % polaroidCards.length;
+    }
+    
+    // Inicia rotação automática a cada 6 segundos
+    if (polaroidCards.length > 0) {
+        rotatePolaroids(); // Posição inicial
+        setInterval(rotatePolaroids, 6000);
+    }
 
     // Carrossel de projetos na home (destaque com esmaecimento)
     const track = document.querySelector('.carousel-track');
