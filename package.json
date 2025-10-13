@@ -1,0 +1,15 @@
+{
+  "name": "paginas",
+  "version": "1.0.0",
+  "description": "Site institucional para escritório de arquitetura e design de interiores.",
+  "main": "convert-images.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sharp": "^0.34.4"
+  }
+}

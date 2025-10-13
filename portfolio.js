@@ -81,8 +81,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function openModal(project) {
         document.getElementById('modalTitle').textContent = project.title;
         document.getElementById('modalDescription').textContent = project.description;
-        document.getElementById('mainImage').src = project.images[0];
-        document.getElementById('mainImage').alt = project.title;
+        const main = document.getElementById('mainImage');
+        const first = project.images[0];
+        const firstWebp = first.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        // srcset responsivo
+        const makeSrcset = (base) => `${base.replace(/\.webp$/, '-480.webp')} 480w, ${base.replace(/\.webp$/, '-768.webp')} 768w, ${base.replace(/\.webp$/, '-1200.webp')} 1200w, ${base} 1600w`;
+        main.src = firstWebp;
+        main.srcset = makeSrcset(firstWebp);
+        main.sizes = '(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px';
+        main.onerror = function() { this.onerror = null; this.src = first; };
+        main.alt = project.title;
 
         // Criar thumbnails
         const thumbnailsContainer = document.getElementById('thumbnails');
@@ -90,7 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         project.images.forEach((image, index) => {
             const thumbnail = document.createElement('img');
-            thumbnail.src = image;
+            // Preferir WebP se existir (mesmo nome trocando extensão)
+            const webpCandidate = image.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+            thumbnail.src = webpCandidate;
+            thumbnail.onerror = function() { this.onerror = null; this.src = image; };
             thumbnail.alt = `${project.title} - Imagem ${index + 1}`;
             thumbnail.classList.add('thumbnail');
             if (index === 0) thumbnail.classList.add('active');
@@ -101,7 +112,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Adicionar classe active ao thumbnail clicado
                 this.classList.add('active');
                 // Trocar imagem principal
-                document.getElementById('mainImage').src = this.src;
+                const main = document.getElementById('mainImage');
+                main.src = this.src;
+                if (this.src.endsWith('.webp')) {
+                    const base = this.src;
+                    main.srcset = `${base.replace(/\.webp$/, '-480.webp')} 480w, ${base.replace(/\.webp$/, '-768.webp')} 768w, ${base.replace(/\.webp$/, '-1200.webp')} 1200w, ${base} 1600w`;
+                    main.sizes = '(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px';
+                } else {
+                    main.removeAttribute('srcset');
+                    main.removeAttribute('sizes');
+                }
             });
 
             thumbnailsContainer.appendChild(thumbnail);
@@ -133,14 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Header transparente no scroll
+    // Unificar com a home: apenas sombra no scroll (sem alterar background)
     window.addEventListener('scroll', () => {
         const header = document.querySelector('.header');
         if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
         } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.boxShadow = 'none';
         }
     });

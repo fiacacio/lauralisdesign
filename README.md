@@ -26,6 +26,12 @@ Site institucional para escritório de arquitetura e design de interiores.
 
 1. Clone ou baixe os arquivos
 2. Abra `index.html` no navegador
+3. Opcional (otimização de imagens):
+   ```bash
+   npm install
+   node convert-images.js
+   ```
+   O conversor cria variantes WebP responsivas (-480/-768/-1200) para `portifolio` e `backgrounds`.
 3. Para hospedar no GitHub Pages:
    - Faça upload dos arquivos para um repositório GitHub
    - Ative o GitHub Pages nas configurações do repositório
@@ -37,6 +43,8 @@ Site institucional para escritório de arquitetura e design de interiores.
 ├── index.html          # Página principal
 ├── styles.css          # Estilos CSS
 ├── script.js           # JavaScript
+├── portfolio.js        # Lógica da página de portfólio e modal
+├── convert-images.js   # Conversor para WebP e variantes responsivas
 └── README.md           # Documentação
 ```
 

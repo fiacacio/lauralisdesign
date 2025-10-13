@@ -12,8 +12,8 @@ async function convertImages() {
         '../../portifolio',
         './imagens',
         '../imagens',
-        './backgrouds',
-        '../backgrouds'
+        './backgrounds',
+        '../backgrounds'
     ];
     
     let portifolioPath = null;
@@ -52,16 +52,35 @@ async function convertImages() {
         
         for (const image of images) {
             const inputPath = path.join(projectPath, image);
-            const outputPath = path.join(projectPath, image.replace(/\.(jpg|jpeg|png)$/i, '.webp'));
+            const baseName = image.replace(/\.(jpg|jpeg|png)$/i, '');
+            const outputPath = path.join(projectPath, `${baseName}.webp`);
+            const output480 = path.join(projectPath, `${baseName}-480.webp`);
+            const output768 = path.join(projectPath, `${baseName}-768.webp`);
+            const output1200 = path.join(projectPath, `${baseName}-1200.webp`);
             
             try {
                 console.log(`  🔄 Convertendo: ${image}`);
                 
                 const originalSize = fs.statSync(inputPath).size;
                 
-                await sharp(inputPath)
-                    .webp({ quality: 85 })
-                    .toFile(outputPath);
+                const img = sharp(inputPath);
+                const metadata = await img.metadata();
+                await img.webp({ quality: 85 }).toFile(outputPath);
+                // Variantes responsivas preservando proporção
+                if (metadata.width) {
+                    const width = metadata.width;
+                    const targets = [
+                        { w: 480, out: output480 },
+                        { w: 768, out: output768 },
+                        { w: 1200, out: output1200 }
+                    ].filter(t => width >= t.w);
+                    for (const t of targets) {
+                        await sharp(inputPath)
+                            .resize({ width: t.w, withoutEnlargement: true })
+                            .webp({ quality: 80 })
+                            .toFile(t.out);
+                    }
+                }
                 
                 const webpSize = fs.statSync(outputPath).size;
                 const reduction = ((originalSize - webpSize) / originalSize * 100).toFixed(1);

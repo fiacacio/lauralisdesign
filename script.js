@@ -210,14 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Rotaciona as polaroids automaticamente
-    const polaroids = document.querySelectorAll('.polaroid-stack .polaroid');
-    if (polaroids.length > 0) {
-        let idx = 0;
-        setInterval(() => {
-            polaroids.forEach((p, i) => p.classList.toggle('active', i === idx));
-            idx = (idx + 1) % polaroids.length;
-        }, 4000);
-    }
+    // Polaroids removidas - sem animação
 
     // Carrossel de projetos na home (destaque com esmaecimento)
     const track = document.querySelector('.carousel-track');
