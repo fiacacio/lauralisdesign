@@ -143,7 +143,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0;
-    background: linear-gradient(135deg, var(--white) 0%, var(--background-light) 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -158,6 +158,7 @@ body {
     z-index: 1;
     overflow: hidden;
     will-change: transform;
+    background: transparent;
 }
 
 .carousel-slide {
@@ -183,47 +184,21 @@ body {
 }
 
 .carousel-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.6) 0%,
-        rgba(255, 255, 255, 0.4) 25%,
-        rgba(255, 255, 255, 0.2) 50%,
-        rgba(255, 255, 255, 0.1) 75%,
-        rgba(255, 255, 255, 0.05) 100%
-    );
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0.35; /* mais sutil no início; aumenta com o scroll via JS */
+    display: none;
 }
 
-/* Fade entre o herói e o restante da página (efeito parallax suave) */
+/* Fade removido completamente */
 .hero-fade {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -1px;
-    height: 180px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--background-light) 100%);
-    z-index: 3;
-    pointer-events: none;
-    opacity: 0.9; /* será animado no scroll */
-    will-change: transform, opacity;
+    display: none;
 }
 
 .hero-content {
     flex: 1;
     max-width: 600px;
-    z-index: 3;
+    z-index: 10;
     padding: 40px 20px 24px;
     position: relative;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.15));
-    backdrop-filter: blur(6px);
-    border-radius: 20px;
+    background: transparent;
     margin: 20px;
 }
 
@@ -287,7 +262,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
+    z-index: 5;
 }
 
 .hero-circle {
@@ -343,6 +318,28 @@ body {
 .services {
     padding: 80px 0;
     background: var(--white);
+    background-image: url('marmore_verde.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.services .container {
+    position: relative;
+    z-index: 2;
 }
 
 .services-grid {
@@ -404,26 +401,42 @@ body {
 .portfolio {
     padding: 80px 0;
     background: var(--background-light);
+    background-image: url('textura marmore.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
-/* Fade invertido no topo da seção Portfólio */
-.portfolio-fade {
+.portfolio::before {
+    content: '';
     position: absolute;
-    top: -160px;
+    top: 0;
     left: 0;
     right: 0;
-    height: 160px;
-    background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 100%);
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0; /* aparece conforme o scroll */
-    will-change: opacity, transform;
+    bottom: 0;
+    background: var(--background-light);
+    opacity: 0.85;
+    z-index: 1;
 }
 
-.portfolio-carousel { position: relative; }
+.portfolio .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fade do portfólio removido completamente */
+.portfolio-fade {
+    display: none;
+}
+
+.portfolio-carousel { position: relative; overflow: hidden; }
 .carousel-track {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* fluxo horizontal contínuo para manter uma única linha */
+    grid-auto-flow: column;
+    /* largura confortável dos cards no desktop */
+    grid-auto-columns: minmax(340px, 1fr);
     gap: 2rem;
     transition: transform 0.6s ease;
 }
@@ -443,8 +456,8 @@ body {
     justify-content: center;
     z-index: 5;
 }
-.carousel-btn.prev { left: -20px; }
-.carousel-btn.next { right: -20px; }
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
 
 /* Destaque e esmaecido */
 .carousel-track .portfolio-item { opacity: 0.7; position: relative; transition: opacity 0.3s ease, transform 0.3s ease; }
@@ -508,10 +521,39 @@ body {
 }
 
 /* About Section */
-.about { position: relative; padding: 40px 0; background: var(--white); }
-.about::before, .about::after { content: ""; position: absolute; left: 0; right: 0; height: 40px; pointer-events: none; z-index: 0; }
-.about::before { top: 0; background: linear-gradient(to bottom, rgba(18,60,52,0.06), rgba(18,60,52,0)); }
-.about::after { bottom: 0; background: linear-gradient(to top, rgba(18,60,52,0.06), rgba(18,60,52,0)); }
+.about { 
+    position: relative; 
+    padding: 40px 0; 
+    background: var(--white);
+    background-image: url('textura marmore.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    opacity: 0.85;
+    z-index: 0;
+}
+
+.about::after { 
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    height: 40px; 
+    pointer-events: none; 
+    z-index: 0; 
+    bottom: 0; 
+    background: linear-gradient(to top, rgba(18,60,52,0.06), rgba(18,60,52,0)); 
+}
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -683,33 +725,57 @@ body {
 .contact {
     padding: 80px 0;
     background: var(--background-light);
+    background-image: url('marmore_verde.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background-light);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.contact .container {
+    position: relative;
+    z-index: 2;
 }
 
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
+    align-items: start;
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
 .contact-item h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .contact-item p {
     color: var(--text-light);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .contact-item a {
@@ -754,16 +820,16 @@ body {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     border: 2px solid #E0E0E0;
-    border-radius: 10px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     transition: border-color 0.3s ease;
     font-family: 'Inter', sans-serif;
 }
@@ -776,7 +842,7 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
 /* WhatsApp Button */
@@ -1195,6 +1261,11 @@ body {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .section-title {

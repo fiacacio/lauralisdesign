@@ -36,13 +36,33 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'BR LIC - Escritório Industrial',
             description: 'Aquele antes e depois que a gente adora né? Nesse projeto a empresa Ômega Net cedeu um pouco do seu espaço a BRLIC Tecnologia, duas empresas que já caminhavam juntas, e continuarão só que de cara nova. Gostaram?',
             images: [
-                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg',
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).jpg',
                 'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (1).jpg',
                 'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (2).jpg',
-                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).jpg',
+                'portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg',
                 'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas, .jpg',
                 'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas,  (2).jpg',
                 'portifolio/br_lic/Para esse Office de tecnologia, aquele modelo tradicional de escritório com salinhas separadas,  (3).jpg'
+            ]
+        },
+        saude_animal: {
+            title: 'Clínica Veterinária',
+            description: 'Antes e depois de revitalização de fachada alinhada à identidade visual, com soluções de custo eficiente e estética atualizada.',
+            images: [
+                'portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A .jpg',
+                'portifolio/saude_animal/ANTES e DEPOIS Nesse projeto o cliente queria dar uma vida nova para essa fachada mas sem abrir .jpg',
+                'portifolio/saude_animal/ANTES e DEPOIS Nesse projeto o cliente queria dar uma vida nova para essa fachada mas sem abrir  (1).jpg'
+            ]
+        },
+        killiney_dublin: {
+            title: 'Killiney, Dublin — Remodelação de Cozinha',
+            description: 'Projeto residencial em Killiney (Dublin) com remodelação de cozinha e moodboard. Antes e depois evidenciam ganho de funcionalidade e estética contemporânea.',
+            images: [
+                'portifolio/killiney_dublin/Antes e Depois - Before and After. Quem não ama ver um antes e depois ...Renderização- @montani3.jpg',
+                'portifolio/killiney_dublin/Antes e Depois - Before and After. Quem não ama ver um antes e depois ...Renderização- @montani3 (1).jpg',
+                'portifolio/killiney_dublin/Antes e Depois - Before and After...#architecture #remodeling #beforeandafter #kitchendesign #in.jpg',
+                'portifolio/killiney_dublin/Antes e Depois - Before and After...#architecture #remodeling #beforeandafter #kitchendesign #in (1).jpg',
+                'portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard #designdeinteriores #moodboard #estudopreliminar #in.jpg'
             ]
         }
     };

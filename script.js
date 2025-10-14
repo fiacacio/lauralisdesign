@@ -36,42 +36,17 @@ window.addEventListener('scroll', () => {
         header.style.boxShadow = 'none';
     }
 
-    // Aumentar a opacidade do gradiente do hero conforme o scroll
-    const overlay = document.querySelector('.carousel-overlay');
-    if (overlay) {
-        const maxOpacity = 0.85; // opacidade máxima desejada
-        const startAt = 0;       // inicia efeito no topo
-        const endAt = 400;       // distância de scroll para atingir o máximo
-        const scrolled = Math.min(Math.max(window.scrollY - startAt, 0), endAt);
-        const progress = scrolled / endAt;
-        const base = 0.35;       // opacidade inicial definida no CSS
-        const current = base + (maxOpacity - base) * progress;
-        overlay.style.opacity = String(current);
-    }
+    // Overlay do carrossel removido para evitar fade abrupto
 
-    // Parallax suave no fade do herói e leve movimento do background
-    const fade = document.querySelector('.hero-fade');
+    // Parallax suave apenas
     const carousel = document.querySelector('.hero-carousel');
-    const portfolioFade = document.querySelector('.portfolio-fade');
-    if (fade) {
-        const y = Math.min(window.scrollY, 250);
-        fade.style.transform = `translateY(${y * 0.2}px)`;
-        fade.style.opacity = String(1 - Math.min(y / 250, 0.6));
-    }
+    
+    // Apenas parallax suave no carrossel
     if (carousel) {
-        const y2 = Math.min(window.scrollY, 300);
-        carousel.style.transform = `translateY(${y2 * 0.1}px)`; // parallax de fundo
+        const y2 = Math.min(window.scrollY, 200);
+        carousel.style.transform = `translateY(${y2 * 0.05}px)`;
     }
 
-    // Fade invertido ao entrar no portfólio
-    if (portfolioFade) {
-        const portfolioSection = document.getElementById('portfolio');
-        const rect = portfolioSection.getBoundingClientRect();
-        // Quando o topo da seção aproxima-se do topo da viewport
-        const visible = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / 200));
-        portfolioFade.style.opacity = String(visible);
-        portfolioFade.style.transform = `translateY(${(1 - visible) * 20}px)`;
-    }
 
     // Parallax suave da bolinha rosa do Sobre
     const aboutCircle = document.querySelector('.about-circle');
@@ -257,26 +232,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = track ? Array.from(track.querySelectorAll('.portfolio-item')) : [];
     const prevBtn = document.querySelector('.carousel-btn.prev');
     const nextBtn = document.querySelector('.carousel-btn.next');
-    let carouselIndex = 0; // índice do primeiro destacado
+    let carouselIndex = 0; // índice do primeiro item visível
+
+    function computeLayout() {
+        const container = track?.closest('.portfolio-carousel') || track?.parentElement;
+        const containerWidth = container?.getBoundingClientRect().width || 0;
+        const itemWidth = items[0]?.getBoundingClientRect().width || 0;
+        const gap = 32; // manter em sincronia com o CSS
+        const isMobile = window.innerWidth <= 768;
+        const itemsPerView = isMobile || !itemWidth ? 1 : Math.max(1, Math.floor((containerWidth + gap) / (itemWidth + gap)));
+        const maxIndex = Math.max(0, items.length - itemsPerView);
+        return { itemWidth, gap, isMobile, itemsPerView, maxIndex };
+    }
 
     function updateCarousel() {
+        const { itemWidth, gap, isMobile, maxIndex } = computeLayout();
+        // Garantir índice dentro do range para evitar "buracos"
+        if (carouselIndex > maxIndex) carouselIndex = 0;
+        if (carouselIndex < 0) carouselIndex = maxIndex;
+
         items.forEach((el, idx) => {
             el.classList.remove('highlight');
             el.classList.remove('dim');
-            // central destacado: index+1
-            if (idx === (carouselIndex + 1) % items.length) {
+            if (idx === carouselIndex + 1) {
                 el.classList.add('highlight');
             } else {
                 el.classList.add('dim');
             }
         });
-        // deslocamento: centraliza o item (index+1) | no mobile vira vertical (sem translateX)
-        const itemWidth = items[0]?.getBoundingClientRect().width || 0;
-        const isMobile = window.innerWidth <= 768;
+
         if (isMobile) {
             track.style.transform = 'translateX(0)';
         } else {
-            const gap = 32; // aproximado do CSS
             const offset = (itemWidth + gap) * carouselIndex;
             track.style.transform = `translateX(${-offset}px)`;
         }
@@ -284,17 +271,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (track && items.length > 0) {
         updateCarousel();
+        window.addEventListener('resize', updateCarousel);
         nextBtn?.addEventListener('click', () => {
-            carouselIndex = (carouselIndex + 1) % items.length;
+            const { maxIndex } = computeLayout();
+            carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
             updateCarousel();
         });
         prevBtn?.addEventListener('click', () => {
-            carouselIndex = (carouselIndex - 1 + items.length) % items.length;
+            const { maxIndex } = computeLayout();
+            carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
             updateCarousel();
         });
-        // Auto-advance (mais lento)
+        // Auto-advance (loop infinito sem espaços vazios)
         setInterval(() => {
-            carouselIndex = (carouselIndex + 1) % items.length;
+            const { maxIndex } = computeLayout();
+            carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
             updateCarousel();
         }, 11000);
     }
