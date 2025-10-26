@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laura Lis Design de Interiores</title>
+    <meta name="description" content="Arquitetura e Design de Interiores em Mococa-SP. Projetos residenciais e comerciais personalizados com assinatura de Laura Lis.">
+    <link rel="canonical" href="https://www.seudominio.com/">
+    <meta property="og:title" content="Laura Lis | Arquitetura e Design de Interiores">
+    <meta property="og:description" content="Projetos residenciais e comerciais personalizados. Desenvolvendo seu lugar exclusivo no mundo!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seudominio.com/">
+    <meta property="og:image" content="https://www.seudominio.com/logo.png">
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-1200.webp" imagesrcset="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-480.webp 480w, backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-768.webp 768w, backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-1200.webp 1200w" imagesizes="(max-width: 1200px) 100vw, 1200px">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h1>Laura Lis</h1>
+                <a href="index.html" aria-label="Laura Lis - Início">
+                    <img src="logo.png" alt="Laura Lis" class="brand-logo">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
                 <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="#services">Serviços</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
@@ -41,10 +54,32 @@
         <!-- Image Carousel -->
         <div class="hero-carousel">
             <div class="carousel-slide active">
-                <img src="imagens/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.jpg" alt="Projeto Laura Lis">
-                <div class="carousel-overlay"></div>
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-480.webp 480w, backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-768.webp 768w, backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única-1200.webp 1200w, backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.webp 1600w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                    <img src="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.jpg" alt="Projeto Laura Lis" loading="eager" fetchpriority="high" decoding="async">
+                </picture>
             </div>
-            <!-- Adicione mais slides conforme necessário -->
+            <div class="carousel-slide">
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s-480.webp 480w, backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s-768.webp 768w, backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s-1200.webp 1200w, backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.webp 1600w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                    <img src="backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg" alt="Projeto Laura Lis 2" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <div class="carousel-slide">
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente-480.webp 480w, backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente-768.webp 768w, backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente-1200.webp 1200w, backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente.webp 1600w"
+                        sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                    <img src="backgrounds/Laura, eu já sabia, desde lá atrás, que você era uma artista, mas hoje realmente eu consigo ente.jpg" alt="Projeto Laura Lis 3" loading="lazy" decoding="async">
+                </picture>
+            </div>
         </div>
         
         <div class="hero-content">
@@ -61,65 +96,124 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfólio</h2>
+            <div class="portfolio-carousel">
+                <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+                <div class="carousel-track">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <picture>
+                            <source type="image/webp" srcset="portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1)-480.webp 480w, portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1)-768.webp 768w, portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1)-1200.webp 1200w, portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).webp 1600w" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                            <img src="portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).jpg" alt="Consultório Odontológico" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
+                    </div>
+                    <h3>Consultório Odontológico</h3>
+                    <p>Projeto completo de design de interiores</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <picture>
+                            <source type="image/webp" srcset="portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1)-480.webp 480w, portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1)-768.webp 768w, portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1)-1200.webp 1200w, portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1).webp 1600w" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                            <img src="portifolio/residencia_rossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1).jpg" alt="Suíte Master" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
+                    </div>
+                    <h3>Suíte Master</h3>
+                    <p>Projeto residencial com design acolhedor</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <picture>
+                            <source type="image/webp" srcset="portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3)-480.webp 480w, portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3)-768.webp 768w, portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3)-1200.webp 1200w, portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).webp 1600w" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                            <img src="portifolio/br_lic/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s (3).jpg" alt="BR LIC - Escritório Industrial" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
+                    </div>
+                    <h3>BR LIC</h3>
+                    <p>Escritório industrial integrado e contemporâneo</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <picture>
+                            <source type="image/webp" srcset="portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard %23designdeinteriores %23moodboard %23estudopreliminar %23in-480.webp 480w, portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard %23designdeinteriores %23moodboard %23estudopreliminar %23in-768.webp 768w, portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard %23designdeinteriores %23moodboard %23estudopreliminar %23in-1200.webp 1200w, portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard %23designdeinteriores %23moodboard %23estudopreliminar %23in.webp 1600w" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                            <img src="portifolio/killiney_dublin/Casa em Killiney - Killiney House Moodboard %23designdeinteriores %23moodboard %23estudopreliminar %23in.jpg" alt="Killiney, Dublin — Remodelação de Cozinha" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
+                    </div>
+                    <h3>Killiney, Dublin</h3>
+                    <p>Remodelação de cozinha e moodboard</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <picture>
+                            <source type="image/webp" srcset="portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A -480.webp 480w, portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A -768.webp 768w, portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A -1200.webp 1200w, portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A .webp 1600w" sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1200px) 1200px, 1600px">
+                            <img src="portifolio/saude_animal/ANTES e DEPOIS A importância de ter uma fachada bem alinhada com a identidade do seu negócio. A .jpg" alt="Clínica Veterinária" loading="lazy" decoding="async">
+                        </picture>
+                        <div class="portfolio-overlay">
+                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
+                        </div>
+                    </div>
+                    <h3>Clínica Veterinária</h3>
+                    <p>Revitalização de fachada e identidade visual</p>
+                </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+            </div>
+            <div class="portfolio-cta">
+                <a href="portfolio.html" class="btn-primary">Ver Todos os Projetos</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
                     <h3>Projeto Residencial</h3>
                     <p>Transformamos sua casa em um lar único, combinando funcionalidade e beleza.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
                     <h3>Projeto Comercial</h3>
                     <p>Criamos ambientes corporativos que inspiram produtividade e bem-estar.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                        </svg>
+                    </div>
                     <h3>Consultoria</h3>
                     <p>Orientação especializada para você mesmo transformar seus espaços.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfólio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="portifolio/dentista_bruna/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única (1).jpg" alt="Consultório Odontológico">
-                        <div class="portfolio-overlay">
-                            <h3>Consultório Odontológico</h3>
-                            <p>Projeto completo de design de interiores</p>
-                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="portifolio/residencia_hossri/Uma suíte master deslumbrante! Um quarto acolhedor, aconchegante que expressa a personalidade de (1).jpg" alt="Suíte Master">
-                        <div class="portfolio-overlay">
-                            <h3>Suíte Master</h3>
-                            <p>Projeto residencial com design acolhedor</p>
-                            <a href="portfolio.html" class="btn-view">Ver Projeto</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder">Novo Projeto</div>
-                    </div>
-                    <h3>Em Breve</h3>
-                    <p>Novos projetos em desenvolvimento</p>
-                </div>
-            </div>
-            <div class="portfolio-cta">
-                <a href="portfolio.html" class="btn-primary">Ver Todos os Projetos</a>
             </div>
         </div>
     </section>
@@ -134,7 +228,7 @@
                     <p>Especialista em projetos residenciais e comerciais, sempre buscando soluções inovadoras que transformam ambientes em experiências memoráveis e funcionais.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <h3>150+</h3>
+                            <h3 id="projectsCount">0</h3>
                             <p>Projetos Realizados</p>
                         </div>
                         <div class="stat">
@@ -148,7 +242,43 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="about-circle"></div>
+                    <div class="about-circle about-circle-1"></div>
+                    <div class="about-circle about-circle-2"></div>
+                    <div class="about-circle about-circle-3"></div>
+                    <div class="polaroid-carousel">
+                        <div class="polaroid-card active">
+                            <picture>
+                                <source srcset="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.webp" type="image/webp">
+                                <img src="backgrounds/Cores que inspiram e acolhem! Esse consultório odontológico ganhou vida com uma combinação única.jpg" alt="Projeto Laura Lis" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="polaroid-card">
+                            <picture>
+                                <source srcset="backgrounds/Laura-artista.webp" type="image/webp">
+                                <img src="backgrounds/Laura-artista.jpg" alt="Projeto Laura Lis" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="polaroid-card">
+                            <picture>
+                                <source srcset="backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.webp" type="image/webp">
+                                <img src="backgrounds/Aquele antes e depois que a gente adora né Nesse projeto a empresa Ômega Net cedeu um pouco do s.jpg" alt="Projeto Laura Lis" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="polaroid-carousel-2">
+                        <div class="polaroid-card active">
+                            <picture>
+                                <source srcset="backgrounds/carrossel2/construir-novo.webp" type="image/webp">
+                                <img src="backgrounds/carrossel2/construir-novo.jpg" alt="Projeto Laura Lis" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                        <div class="polaroid-card">
+                            <picture>
+                                <source srcset="backgrounds/carrossel2/acompanhamento-obra.webp" type="image/webp">
+                                <img src="backgrounds/carrossel2/acompanhamento-obra.jpg" alt="Projeto Laura Lis" loading="lazy" decoding="async">
+                            </picture>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,20 +291,38 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>📧 Email</h3>
-                        <p>contato@lauralisdesign.com</p>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.511l-8 5.334-8-5.334V6Zm0 12H4V8.489l7.4 4.933a1 1 0 0 0 1.2 0L20 8.489V18Z"/></svg>
+                            <span>Email</span>
+                        </h3>
+                        <p>lauralisarq@gmail.com</p>
                     </div>
                     <div class="contact-item">
-                        <h3>📱 WhatsApp</h3>
-                        <p>(19) 98955-9119</p>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a10.3 10.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+                            <span>WhatsApp</span>
+                        </h3>
+                        <p><a href="https://wa.me/5519989559119" target="_blank" rel="noopener noreferrer">(19) 98955-9119</a></p>
                     </div>
                     <div class="contact-item">
-                        <h3>📸 Instagram</h3>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 .001 6.001A3 3 0 0 0 12 9Zm4.5-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+                            <span>Instagram</span>
+                        </h3>
                         <p><a href="https://www.instagram.com/lauralis.interiores/" target="_blank" rel="noopener noreferrer">@lauralis.interiores</a></p>
                     </div>
                     <div class="contact-item">
-                        <h3>📍 Endereço</h3>
-                        <p>São Paulo, SP</p>
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+                            <span>Endereço</span>
+                        </h3>
+                        <p>Praça Ademar de Barros, 59 - Centro, Mococa - SP, 13730-048</p>
+                        <a href="https://maps.google.com/?q=Praça+Ademar+de+Barros,+59+-+Centro,+Mococa+-+SP,+13730-048" target="_blank" rel="noopener noreferrer" class="maps-link">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Ver no Google Maps
+                        </a>
                     </div>
                 </div>
                 <form class="contact-form">
